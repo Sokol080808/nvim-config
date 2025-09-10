@@ -14,7 +14,7 @@ return {
 
         local on_attach = function(client, bufnr)
             local bufmap = function(mode, lhs, rhs)
-                vim.keymap.set(mode, lhs, rhs, { noremap=true, silent=true, buffer=bufnr })
+                vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, buffer = bufnr })
             end
 
             bufmap("n", "gd", vim.lsp.buf.definition)
@@ -24,7 +24,7 @@ return {
             bufmap("n", "K", vim.lsp.buf.hover)
             bufmap("n", "<leader>rn", vim.lsp.buf.rename)
             bufmap("n", "<leader>ca", vim.lsp.buf.code_action)
-            bufmap("n", "<leader>f", function() vim.lsp.buf.format { async = true } end)
+            bufmap("n", "<leader>fr", function() vim.lsp.buf.format { async = true } end)
         end
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -42,12 +42,12 @@ return {
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
-                    Lua = {
-                        runtime = {
-                        version = "LuaJIT", -- Neovim использует LuaJIT
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
                     },
                     diagnostics = {
-                        globals = { "vim" }, -- добавляем vim как глобальную переменную
+                        globals = { "vim" },
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
