@@ -13,7 +13,7 @@ vim.opt.autoindent = true
 vim.diagnostic.config({
     virtual_lines = true,
     virtual_text = false,
-    signs = false,
+    signs = true,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
@@ -23,3 +23,11 @@ require("config.keymaps")
 require("config.lazy")
 
 vim.cmd.colorscheme("tokyonight")
+
+vim.g.vimtex_env_toggle_math_map = {
+  ['$'] = '\\(',
+  ['$$'] = '\\[',
+  ['\\('] = '\\[',
+  ['\\['] = 'gather*',
+  ['gather'] = '\\(',
+}

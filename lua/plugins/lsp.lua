@@ -10,6 +10,7 @@ return {
             "pyright",
             "lua_ls",
             "clangd",
+            "texlab",
         }
 
         local on_attach = function(client, bufnr)
